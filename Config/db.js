@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const connection = (async () => {
     try {
-        await mongoose.connect('mongodb+srv://shreedeshpande90:y40mNOrK5GCMgLKo@cluster0.7mczf0n.mongodb.net/GoFood')
+        await mongoose.connect(process.env.MONGO_URL)
         console.log('connecction successfully' + mongoose.connection.readyState);
 
         // Fetch food items

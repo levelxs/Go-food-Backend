@@ -1,4 +1,5 @@
-const express = require ('express')
+require('dotenv').config();
+const express = require('express')
 const app = express()
 const port = 5000;
 
@@ -6,17 +7,17 @@ const port = 5000;
 app.use(express.json());
 
 //cors package
-var cors=require('cors')
+var cors = require('cors')
 app.use(cors())  //for all origine
 
 //app.use({origine:'url of frontend'})
 
 //Import database connection
-const connection =require('./Config/db')
-connection.connection(); 
+const connection = require('./Config/db')
+connection.connection();
 
 //Route path
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send('The back end Server is Start')
 })
 
@@ -37,7 +38,7 @@ app.use('/api', require('./Routes/FoodData'))
 
 
 
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log(`The server is upon ${port}`);
-    
+
 })
