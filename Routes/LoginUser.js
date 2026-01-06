@@ -12,7 +12,7 @@ const bcrypt = require('bcryptjs')
 
 router.post('/loginUser', [
     body('email', 'incorrect email').isEmail(),
-    body('password', 'Incorrect Password').isLength({ min: 5 })],
+    body('password', 'Incorrect Password').isLength({ min: 1 })],
     async (req, res) => {
 
         const errors = validationResult(req);
